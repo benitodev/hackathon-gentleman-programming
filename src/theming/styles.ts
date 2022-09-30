@@ -1,0 +1,1 @@
+export const appBarStyles = {backgroundColor: '#2d97bc',  top: 'auto', bottom: 0 }
