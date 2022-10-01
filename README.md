@@ -15,7 +15,7 @@ The application is inspired by a page from the chapters of rick and morty. Expan
 
 **API**: https://rickandmortyapi.com/graphql
 
-**Demo**:
+**Demo**: https://rick-morty-hackathon.netlify.app/#/home
 
 ## Technologies
 
