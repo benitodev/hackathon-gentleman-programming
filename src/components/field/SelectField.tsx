@@ -38,7 +38,8 @@ const SelectField = ({ fields }: SelectFieldProps) => {
       sx={{
         '& .MuiTextField-root': { m: 1, width: 'auto', minWidth: '120px' },
         display: 'flex',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        marginBottom:'4px'
       }}
       noValidate
       autoComplete="off"

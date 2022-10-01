@@ -22,7 +22,8 @@ const CharactersFromEpisode = () => {
     <Box component='div' alignItems='center' sx={{
       display: 'flex',
       flexDirection: 'column',
-      marginBottom: '40px'
+      marginBottom: '40px',
+      paddingTop:{md:'4rem'}
     }}>
       {
         typeof episodeResponse === 'object' ?

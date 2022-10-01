@@ -45,7 +45,8 @@ const Search = () => {
     <Box component='div' alignItems='center' sx={{
       display: 'flex',
       flexDirection: 'column',
-      marginBottom: '40px'
+      marginBottom: '40px',
+      paddingTop:{md:'4rem'}
     }}>
       <ColorTextFields dispatch={setSearch} inputRef={searchRef}></ColorTextFields>
       <SearchSelectField />

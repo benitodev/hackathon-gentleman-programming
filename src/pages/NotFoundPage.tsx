@@ -1,7 +1,7 @@
-
+import {Box} from '@mui/material'
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <Box sx={{paddingTop:{md:'4rem'}}}>NotFound</Box>
   )
 }
 

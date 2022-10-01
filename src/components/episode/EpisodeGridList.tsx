@@ -18,7 +18,7 @@ const EpisodeGridList = () => {
   const next = episodes?.info?.next
 
   return (
-    <section id='episodesList'>
+    <Box id='episodesList' sx={{paddingTop:{md:'4rem'}}}>
       <Typography variant='h1' mb='2rem'>Rick and morty</Typography>
       
       <BaseGridList items={episodesItems} spacing={6} loading={loading} renderItem={(episode, i) => (
@@ -48,7 +48,7 @@ const EpisodeGridList = () => {
       )} />
 
       <Box mb='100px'></Box>
-    </section>
+    </Box>
   )
 }
 

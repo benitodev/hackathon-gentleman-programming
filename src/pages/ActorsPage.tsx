@@ -14,7 +14,7 @@ const Actors = () => {
   const actors = response?.results as GenericObject[]
   const next = response?.info?.next
   return (
-    <section id='actorsList'>
+    <Box id='actorsList' sx={{paddingTop:{md:'4rem'}}}>
       <BaseGridList items={actors} spacing={6} loading={loading} renderItem={(actor, i) => (
         <Grid key={actor.id} item xs={12} sm={4} >
           <ActorCard actor={actor}></ActorCard>
@@ -43,7 +43,7 @@ const Actors = () => {
       )} />
 
       <Box mb='100px'></Box>
-    </section>
+    </Box>
   )
 }
 

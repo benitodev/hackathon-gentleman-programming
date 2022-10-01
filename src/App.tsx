@@ -6,12 +6,14 @@ import Search from './pages/SearchPage';
 import NotFound from './pages/NotFoundPage';
 import CharactersFromEpisode from './pages/CharactersFromEpisodePage';
 import Actors from './pages/ActorsPage';
+import DesktopBar from './components/bar/DesktopBar';
 
 function App() {
 
     return (
         <>
             <Router>
+                <DesktopBar/>
                 <BottomAppBar />
                 <Routes>
                     <Route path='/' element={<Navigate to='/home' />} />

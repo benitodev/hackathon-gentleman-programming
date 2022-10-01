@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,17 +21,14 @@ const StyledFab = styled(Fab)({
   margin: '0 auto',
 });
 
-type BottomAppBarProps = {
- home?: Boolean
- search?: Boolean
- actors?: Boolean
+export type BottomAppBarProps = {
+  home?: Boolean
+  search?: Boolean
+  actors?: Boolean
 }
 
-type toggleClickIconProps = {
-  name: String, value?: Boolean
-}
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   home: false,
   search: false,
   actors: false
@@ -39,64 +36,64 @@ const INITIAL_STATE = {
 
 const BottomAppBar = () => {
   const theme = useTheme()
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
   const [outlinedIcons, setOutlinedIcons] = useState<BottomAppBarProps>(INITIAL_STATE)
 
-  useEffect(()=>{
-    if(!pathname) return
+  useEffect(() => {
+    if (!pathname) return
     const path = pathname.slice(1)
-    setOutlinedIcons(()=> ({...INITIAL_STATE, [path.toString()]: true}))
+    setOutlinedIcons(() => ({ ...INITIAL_STATE, [path.toString()]: true }))
   }, [pathname])
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
-      <AppBar position="fixed" color={"primary"}  sx={appBarStyles}>
-        <Toolbar sx={{justifyContent: 'space-around', padding: 0}}>
-          
+      <AppBar position="fixed" color={"primary"} sx={appBarStyles}>
+        <Toolbar sx={{ justifyContent: 'space-around', padding: 0 }}>
+
           <NavLink to='/home' style={({ isActive }) => ({
             color: isActive ? '#fff' : 'rgb(208 208 208)'
           })}>
-          <IconButton color="inherit">
-            {
-            outlinedIcons.home ? 
-            <OndemandVideoIcon sx={{width:'1.2em', height:'1.2em'}}/>
-            : 
-            <MdOutlineOndemandVideo sx={{width:'1.2em', height:'1.2em'}}/>
-            }
-          </IconButton>
+            <IconButton color="inherit">
+              {
+                outlinedIcons.home ?
+                  <OndemandVideoIcon sx={{ width: '1.2em', height: '1.2em' }} />
+                  :
+                  <MdOutlineOndemandVideo sx={{ width: '1.2em', height: '1.2em' }} />
+              }
+            </IconButton>
           </NavLink>
 
 
-        <NavLink to='/search' style={({ isActive }) => ({
+          <NavLink to='/search' style={({ isActive }) => ({
             color: isActive ? '#fff' : 'rgb(208 208 208)'
           })}>
-          <IconButton color="inherit" sx={{outlineColor: '#fff'}}>
-          {
-            outlinedIcons.search ? 
-            <SearchIcon sx={{width:'1.2em', height:'1.2em'}} />
-            : 
-            <SearchOutlinedIcon sx={{width:'1.2em', height:'1.2em'}} />
-          }
-          </IconButton>
-        </NavLink>
+            <IconButton color="inherit" sx={{ outlineColor: '#fff' }}>
+              {
+                outlinedIcons.search ?
+                  <SearchIcon sx={{ width: '1.2em', height: '1.2em' }} />
+                  :
+                  <SearchOutlinedIcon sx={{ width: '1.2em', height: '1.2em' }} />
+              }
+            </IconButton>
+          </NavLink>
 
           <NavLink to='/actors' style={({ isActive }) => ({
             color: isActive ? '#fff' : 'rgb(208 208 208)'
           })}>
             <IconButton color="inherit" aria-label="open drawer">
-             { 
-              outlinedIcons.actors ?
-              <img src="icons/rick-filled.png" alt="rick-filled" style={{width:'1.2em', height:'1.2em'}}/>
-              :
-              <img src="icons/rick-outlined.png" alt="rick-filled" style={{width:'1.2em', height:'1.2em'}} />
+              {
+                outlinedIcons.actors ?
+                  <img src="icons/rick-filled.png" alt="rick-filled" style={{ width: '1.2em', height: '1.2em' }} />
+                  :
+                  <img src="icons/rick-outlined.png" alt="rick-filled" style={{ width: '1.2em', height: '1.2em' }} />
 
-            }
+              }
             </IconButton>
           </NavLink>
 
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
 export default BottomAppBar

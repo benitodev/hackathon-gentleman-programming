@@ -1,1 +1,1 @@
-export const appBarStyles = {backgroundColor: '#2d97bc',  top: 'auto', bottom: 0 }
+export const appBarStyles = {display:{md:'none'}, backgroundColor: '#2d97bc',  top: 'auto', bottom: 0 }
