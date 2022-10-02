@@ -1,8 +1,11 @@
 import { Character } from '../../generated/graphql'
-import ActorModal from './ActorModal';
-import { Avatar, Card, CardContent, CardMedia, Divider, Paper, Typography } from '@mui/material';
+import ActorModal from './ActorModal'
+import { Avatar, Card, CardContent, Typography } from '@mui/material'
 
-export type Actor = Pick<Character, 'id' | 'name' | 'species' | 'image' | 'origin' | 'created'>
+export type Actor = Pick<
+  Character,
+  'id' | 'name' | 'species' | 'image' | 'origin' | 'created'
+>
 
 type ActorCardProps = {
   actor: Actor
@@ -14,20 +17,28 @@ const ActorCard = ({ actor }: ActorCardProps) => {
   const isInCastSince = new Date(String(created)).toLocaleDateString()
 
   return (
-    <Card sx={{ maxWidth: 900, display: 'flex', flexDirection: 'column', width: '100%', textAlign: 'left' }} >
+    <Card
+      sx={{
+        maxWidth: 900,
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        textAlign: 'left',
+      }}
+    >
       <Avatar
         alt={name as string}
         src={image as string}
         sx={{ width: '100%', height: '100%', borderRadius: '0' }}
-
       />
-      <CardContent sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-        <Typography gutterBottom variant="h3" m={0} color='primary.light'>
+      <CardContent
+        sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}
+      >
+        <Typography gutterBottom variant="h3" m={0} color="primary.light">
           {name}
         </Typography>
 
-
-        <Typography variant="h5" mb='4px' mt={2} color="text.secondary">
+        <Typography variant="h5" mb="4px" mt={2} color="text.secondary">
           Gender:
         </Typography>
 
@@ -35,20 +46,15 @@ const ActorCard = ({ actor }: ActorCardProps) => {
           {species}
         </Typography>
 
-
-        <Typography variant="h5" mb='4px' mt={2} color="text.secondary">
+        <Typography variant="h5" mb="4px" mt={2} color="text.secondary">
           From:
         </Typography>
 
         <Typography variant="h5" color="text.primary">
-          {
-            origin?.type
-              ? `${origin?.type}, ${origin?.name}`
-              : origin?.name
-          }
+          {origin?.type ? `${origin?.type}, ${origin?.name}` : origin?.name}
         </Typography>
 
-        <Typography variant="h5" mb='4px' mt={2} color="text.secondary">
+        <Typography variant="h5" mb="4px" mt={2} color="text.secondary">
           In the cast since:
         </Typography>
 
@@ -57,9 +63,7 @@ const ActorCard = ({ actor }: ActorCardProps) => {
         </Typography>
 
         <ActorModal id={id} />
-
       </CardContent>
-
     </Card>
   )
 }

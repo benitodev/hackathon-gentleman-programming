@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import CssBaseline from '@mui/material/CssBaseline';
+import { useState, useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
+
+import { appBarStyles } from '../../theming/styles'
+import { styled, useTheme } from '@mui/material/styles'
+import AppBar from '@mui/material/AppBar'
+import CssBaseline from '@mui/material/CssBaseline'
 import MdOutlineOndemandVideo from '@mui/icons-material/OndemandVideoOutlined'
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOffOutlined'
-import SearchIcon from '@mui/icons-material/Search';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Fab from '@mui/material/Fab';
-import { appBarStyles } from '../../theming/styles';
-import { NavLink, useLocation } from 'react-router-dom';
+import SearchIcon from '@mui/icons-material/Search'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Fab from '@mui/material/Fab'
 
 const StyledFab = styled(Fab)({
   position: 'absolute',
@@ -19,7 +20,7 @@ const StyledFab = styled(Fab)({
   left: 0,
   right: 0,
   margin: '0 auto',
-});
+})
 
 export type BottomAppBarProps = {
   home?: Boolean
@@ -27,17 +28,17 @@ export type BottomAppBarProps = {
   actors?: Boolean
 }
 
-
 export const INITIAL_STATE = {
   home: false,
   search: false,
-  actors: false
+  actors: false,
 }
 
 const BottomAppBar = () => {
   const theme = useTheme()
   const { pathname } = useLocation()
-  const [outlinedIcons, setOutlinedIcons] = useState<BottomAppBarProps>(INITIAL_STATE)
+  const [outlinedIcons, setOutlinedIcons] =
+    useState<BottomAppBarProps>(INITIAL_STATE)
 
   useEffect(() => {
     if (!pathname) return
@@ -47,53 +48,65 @@ const BottomAppBar = () => {
   return (
     <>
       <CssBaseline />
-      <AppBar position="fixed" color={"primary"} sx={appBarStyles}>
+      <AppBar position="fixed" color={'primary'} sx={appBarStyles}>
         <Toolbar sx={{ justifyContent: 'space-around', padding: 0 }}>
-
-          <NavLink to='/home' style={({ isActive }) => ({
-            color: isActive ? '#fff' : 'rgb(208 208 208)'
-          })}>
+          <NavLink
+            to="/home"
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : 'rgb(208 208 208)',
+            })}
+          >
             <IconButton color="inherit">
-              {
-                outlinedIcons.home ?
-                  <OndemandVideoIcon sx={{ width: '1.2em', height: '1.2em' }} />
-                  :
-                  <MdOutlineOndemandVideo sx={{ width: '1.2em', height: '1.2em' }} />
-              }
+              {outlinedIcons.home ? (
+                <OndemandVideoIcon sx={{ width: '1.2em', height: '1.2em' }} />
+              ) : (
+                <MdOutlineOndemandVideo
+                  sx={{ width: '1.2em', height: '1.2em' }}
+                />
+              )}
             </IconButton>
           </NavLink>
 
-
-          <NavLink to='/search' style={({ isActive }) => ({
-            color: isActive ? '#fff' : 'rgb(208 208 208)'
-          })}>
+          <NavLink
+            to="/search"
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : 'rgb(208 208 208)',
+            })}
+          >
             <IconButton color="inherit" sx={{ outlineColor: '#fff' }}>
-              {
-                outlinedIcons.search ?
-                  <SearchIcon sx={{ width: '1.2em', height: '1.2em' }} />
-                  :
-                  <SearchOutlinedIcon sx={{ width: '1.2em', height: '1.2em' }} />
-              }
+              {outlinedIcons.search ? (
+                <SearchIcon sx={{ width: '1.2em', height: '1.2em' }} />
+              ) : (
+                <SearchOutlinedIcon sx={{ width: '1.2em', height: '1.2em' }} />
+              )}
             </IconButton>
           </NavLink>
 
-          <NavLink to='/actors' style={({ isActive }) => ({
-            color: isActive ? '#fff' : 'rgb(208 208 208)'
-          })}>
+          <NavLink
+            to="/actors"
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : 'rgb(208 208 208)',
+            })}
+          >
             <IconButton color="inherit" aria-label="open drawer">
-              {
-                outlinedIcons.actors ?
-                  <img src="icons/rick-filled.png" alt="rick-filled" style={{ width: '1.2em', height: '1.2em' }} />
-                  :
-                  <img src="icons/rick-outlined.png" alt="rick-filled" style={{ width: '1.2em', height: '1.2em' }} />
-
-              }
+              {outlinedIcons.actors ? (
+                <img
+                  src="icons/rick-filled.png"
+                  alt="rick-filled"
+                  style={{ width: '1.2em', height: '1.2em' }}
+                />
+              ) : (
+                <img
+                  src="icons/rick-outlined.png"
+                  alt="rick-filled"
+                  style={{ width: '1.2em', height: '1.2em' }}
+                />
+              )}
             </IconButton>
           </NavLink>
-
         </Toolbar>
       </AppBar>
     </>
-  );
+  )
 }
 export default BottomAppBar

@@ -1,12 +1,11 @@
-import { useParams } from 'react-router-dom';
-import EpisodeGridList from '../components/episode/EpisodeGridList';
+import EpisodeGridList from '../components/episode/EpisodeGridList'
 
 const Home = () => {
-    return (
-        <>
-            <EpisodeGridList />
-        </>
-    );
-};
+  return (
+    <>
+      <EpisodeGridList />
+    </>
+  )
+}
 
-export default Home;
+export default Home
