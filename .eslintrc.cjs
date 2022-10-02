@@ -13,12 +13,18 @@ module.exports = {
     }
   ],
   parserOptions: {
+    project: './tsconfig.json',
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
   plugins: [
-    'react', 'typescript'
+    'react', 'typescript', '@typescript-eslint'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
   }
 }
